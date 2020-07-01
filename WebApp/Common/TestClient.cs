@@ -23,20 +23,14 @@ namespace WebApp.Common
 
             _client.BaseAddress = new Uri("http://localhost:5005/api/");
 
-            //_circuitBreakerPolicy = Policy.Handle<Exception>()
-            //   .CircuitBreakerAsync(3, TimeSpan.FromMinutes(1));
-
         }
 
         public async Task<string> GetContent()
         {
-            //await _circuitBreakerPolicy.ExecuteAsync(async () =>
-            //{
-                var result = await _client.GetAsync("test");
-            //    return await result.Content.ReadAsStringAsync();
-            //});
 
+            var result = await _client.GetAsync("test");
             return await result.Content.ReadAsStringAsync();
+
 
         }
     }

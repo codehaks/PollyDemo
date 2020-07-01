@@ -27,12 +27,6 @@ namespace WebApp
         {
             services.AddControllersWithViews();
 
-            //var circuitBreakerPolicy = Policy
-            //    .HandleResult<HttpResponseMessage>(r => !r.IsSuccessStatusCode)
-            //   .CircuitBreakerAsync(3, TimeSpan.FromSeconds(1));
-
-            //services.AddSingleton<TestClient>();
-
             services.AddHttpClient<TestClient>()
                 .AddTransientHttpErrorPolicy(p => p.CircuitBreakerAsync(2, TimeSpan.FromSeconds(10)));
         }
