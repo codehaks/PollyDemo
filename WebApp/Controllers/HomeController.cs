@@ -45,9 +45,9 @@ namespace WebApp.Controllers
         [Route("breaker")]
         public async Task<IActionResult> Breaker()
         {
-            await _client.GetContent();
+            var result=await _client.GetContent();
 
-            return Ok("Done");
+            return Ok(result);
         }
 
         public IActionResult Privacy()
