@@ -13,7 +13,6 @@ namespace WebApp.Common
     public class TestClient
     {
         private readonly HttpClient _client;
-        private readonly AsyncCircuitBreakerPolicy _circuitBreakerPolicy;
         private readonly ILogger<TestClient> _logger;
 
         public TestClient(HttpClient client, ILogger<TestClient> logger)

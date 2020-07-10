@@ -28,7 +28,8 @@ namespace WebApp
             services.AddControllersWithViews();
 
             services.AddHttpClient<TestClient>()
-                .AddTransientHttpErrorPolicy(p => p.CircuitBreakerAsync(2, TimeSpan.FromSeconds(10)));
+                .AddTransientHttpErrorPolicy(p => 
+                p.CircuitBreakerAsync(2, TimeSpan.FromSeconds(10)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

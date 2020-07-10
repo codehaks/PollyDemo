@@ -31,7 +31,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Retry()
         {
             var polly = Policy.Handle<Exception>()
-                .WaitAndRetryAsync(2, sleep => TimeSpan.FromSeconds(1));
+                .WaitAndRetryAsync(2, sleep => TimeSpan.FromSeconds(3));
             var client = new HttpClient();
 
             await polly.ExecuteAsync(async () =>
